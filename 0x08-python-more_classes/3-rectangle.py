@@ -57,7 +57,7 @@ class Rectangle:
         Represent the rectangle with #
         """
         if self.__height == 0 or self.width == 0:
-            return ""
+            return ("")
 
         rec = []
         for i in range(self.__height):
