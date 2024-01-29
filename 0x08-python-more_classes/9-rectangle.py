@@ -104,7 +104,11 @@ class Rectangle:
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
 
+    @classmethod
     def square(cls, size=0):
-        cls.__height = size
-        cls.__width = size
-        return cls
+        """Return a new Rectangle with width and height equal to size.
+
+        Args:
+            size (int): The width and height of the new Rectangle.
+        """
+        return (cls(size, size))
