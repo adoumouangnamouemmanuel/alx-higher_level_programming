@@ -64,5 +64,4 @@ class Rectangle:
             [rec.append("#") for j in range(self.__width)]
             if i != height - 1:
                 rec.append("\n")
-
-            return ("".join(rec))
+        return ("".join(rec))
