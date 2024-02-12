@@ -54,17 +54,17 @@ class Square(Rectangle):
             if len(args) > 3:
                 self.y = args[3]
         else:
-            for k, v in kwargs.items():
-                if k == "id":
-                    if type(v) != int and v is not None:
+            for key, value in kwargs.items():
+                if key == "id":
+                    if type(value) != int and value is not None:
                         raise TypeError("id must be an integer")
-                    self.id = v
-                if k == "size":
-                    self.size = v
-                if k == "x":
-                    self.x = v
-                if k == "y":
-                    self.y = v
+                    self.id = value
+                if key == "size":
+                    self.size = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Square"""
