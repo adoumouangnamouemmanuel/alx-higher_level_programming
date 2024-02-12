@@ -40,31 +40,35 @@ class Square(Rectangle):
         self.__height = value
 
     def update(self, *args, **kwargs):
-        """Updates attributes of an instance"""
-
-        if args is not None and len(args) != 0:
-            if len(args) >= 1:
-                if type(args[0]) != int and args[0] is not None:
-                    raise TypeError("id must be an integer")
-                self.id = args[0]
-            if len(args) > 1:
-                self.size = args[1]
-            if len(args) > 2:
-                self.x = args[2]
-            if len(args) > 3:
-                self.y = args[3]
-        else:
-            for key, value in kwargs.items():
-                if key == "id":
-                    if type(value) != int and value is not None:
-                        raise TypeError("id must be an integer")
-                    self.id = value
-                if key == "size":
-                    self.size = value
-                if key == "x":
-                    self.x = value
-                if key == "y":
-                    self.y = value
+        """update the attribute based on variable/keyword argument"""
+        if args and len(args) != 0:
+            a = 0
+            for arg in args:
+                if a == 0:
+                    if arg is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif a == 1:
+                    self.size = arg
+                elif a == 2:
+                    self.x = arg
+                elif a == 3:
+                    self.y = arg
+                a += 1
+        elif kwargs and len(kwargs) != 0: 
+            for k, v in kwargs.items():
+                if k == "id":
+                    if v is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = v
+                elif k == "size":
+                    self.size = v
+                elif k == "x":
+                    self.x = v
+                elif k == "y":
+                    self.y = v
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Square"""
